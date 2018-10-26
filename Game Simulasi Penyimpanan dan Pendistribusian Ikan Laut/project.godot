@@ -12,7 +12,13 @@ config_version=3
 
 config/name="Game Simulasi Penyimpanan dan Pendistribusian Ikan Laut"
 run/main_scene="res://Menu.tscn"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
+window/stretch/aspect="expand"
 
 [rendering]
 

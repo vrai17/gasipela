@@ -1,0 +1,5 @@
+- pemisahan skor penyimpanan dan skor distribusi
+- terkoneksi ke database menggunakan sqlite3
+- login dan daftar sudah bisa dipakai
+- pembuatan ui level penyimpanan
+- troli di level penyimpanan sudah berjalan namun belum bekerja dengan baik 

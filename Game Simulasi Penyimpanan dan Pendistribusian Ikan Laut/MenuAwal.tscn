@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://MenuAwal.gd" type="Script" id=1]
-[ext_resource path="res://Button Menu.png" type="Texture" id=2]
+[ext_resource path="res://assets/Button Menu.png" type="Texture" id=2]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Button Menu 2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Button Menu 2.png" type="Texture" id=4]
 [ext_resource path="res://neuropol x rg.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://User.png" type="Texture" id=6]
-[ext_resource path="res://Soundon.png" type="Texture" id=7]
-[ext_resource path="res://Soundoff.png" type="Texture" id=8]
+[ext_resource path="res://assets/User.png" type="Texture" id=6]
+[ext_resource path="res://assets/Soundon.png" type="Texture" id=7]
+[ext_resource path="res://assets/Soundoff.png" type="Texture" id=8]
+[ext_resource path="res://assets/storgaeart.png" type="Texture" id=9]
+[ext_resource path="res://assets/pickupart.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -17,7 +19,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="NMenuAwal" type="Node2D"]
+[node name="NMenuAwal" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -244,9 +246,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 128.0
-margin_top = 507.0
-margin_right = 316.0
-margin_bottom = 545.0
+margin_top = 489.0
+margin_right = 332.0
+margin_bottom = 526.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -263,15 +265,41 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="LSkor" type="Label" parent="." index="10"]
+[node name="LSkorPenyimpanan" type="Label" parent="." index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 127.0
-margin_top = 541.0
-margin_right = 315.0
+margin_left = 158.0
+margin_top = 517.0
+margin_right = 281.0
+margin_bottom = 554.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0000"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="LSkorPengiriman" type="Label" parent="." index="11"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 158.0
+margin_top = 542.0
+margin_right = 281.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -289,8 +317,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="BSoundOn" type="Button" parent="." index="11"]
+[node name="BSoundOn" type="Button" parent="." index="12"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -319,8 +348,9 @@ position = Vector2( 34.49, 28.349 )
 scale = Vector2( 0.135303, 0.135303 )
 texture = ExtResource( 7 )
 
-[node name="BSoundOff" type="Button" parent="." index="12"]
+[node name="BSoundOff" type="Button" parent="." index="13"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -349,6 +379,19 @@ position = Vector2( 34.49, 28.349 )
 scale = Vector2( 0.135303, 0.135303 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Offset" ]
+
+[node name="SPenyimpanan" type="Sprite" parent="." index="14"]
+
+position = Vector2( 141.857, 537.098 )
+scale = Vector2( 0.156934, 0.156934 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Animation" ]
+
+[node name="SPengiriman" type="Sprite" parent="." index="15"]
+
+position = Vector2( 141.329, 564.248 )
+scale = Vector2( 0.23411, 0.23411 )
+texture = ExtResource( 10 )
 
 [connection signal="pressed" from="BSoundOn" to="." method="_on_BSoundOn_pressed"]
 

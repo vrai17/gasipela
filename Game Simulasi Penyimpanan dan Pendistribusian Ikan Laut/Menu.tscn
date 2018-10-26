@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
-[ext_resource path="res://sardinella.jpg" type="Texture" id=2]
-[ext_resource path="res://Logo.png" type="Texture" id=3]
+[ext_resource path="res://assets/sardinella.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/Logo.png" type="Texture" id=3]
 [ext_resource path="res://MenuLogin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://MenuAwal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MenuJenis.tscn" type="PackedScene" id=6]
@@ -12,6 +12,7 @@
 [node name="NMenu" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -27,10 +28,9 @@ texture = ExtResource( 3 )
 
 [node name="NMenuLogin" parent="." index="1" instance=ExtResource( 4 )]
 
-editor/display_folded = true
-visible = false
-
 [node name="NMenuAwal" parent="." index="2" instance=ExtResource( 5 )]
+
+visible = false
 
 [node name="NMenuJenis" parent="." index="3" instance=ExtResource( 6 )]
 
@@ -45,12 +45,17 @@ visible = false
 [node name="NSkor" parent="." index="5" instance=ExtResource( 8 )]
 
 editor/display_folded = true
+visible = false
 
 [connection signal="pressed" from="NMenuLogin/BLogin" to="." method="_on_BLogin_pressed"]
 
 [connection signal="pressed" from="NMenuLogin/BExit" to="." method="_on_BExit_pressed"]
 
 [connection signal="pressed" from="NMenuLogin/BDaftar" to="." method="_on_BDaftar_pressed"]
+
+[connection signal="pressed" from="NMenuLogin/PNamaSama/BOkNamaSama" to="." method="_on_BOkNamaSama_pressed"]
+
+[connection signal="pressed" from="NMenuLogin/PPassSalah/BOkPassSalah" to="." method="_on_BOkPassSalah_pressed"]
 
 [connection signal="pressed" from="NMenuAwal/BPlay" to="." method="_on_BPlay_pressed"]
 
@@ -59,6 +64,8 @@ editor/display_folded = true
 [connection signal="pressed" from="NMenuAwal/BAbout" to="." method="_on_BAbout_pressed"]
 
 [connection signal="pressed" from="NMenuAwal/BLogout" to="." method="_on_BLogout_pressed"]
+
+[connection signal="pressed" from="NMenuJenis/BPenyimpanan" to="." method="_on_BPenyimpanan_pressed"]
 
 [connection signal="pressed" from="NMenuJenis/BKembali" to="." method="_on_BKembali_pressed"]
 

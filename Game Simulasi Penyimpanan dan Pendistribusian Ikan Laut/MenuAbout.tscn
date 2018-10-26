@@ -1,8 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://BackgroundAbout.png" type="Texture" id=1]
-[ext_resource path="res://Button Menu 2.png" type="Texture" id=2]
+[ext_resource path="res://assets/BackgroundAbout.png" type="Texture" id=1]
+[ext_resource path="res://assets/Button Menu 2.png" type="Texture" id=2]
 [ext_resource path="res://neuropol x rg.ttf" type="DynamicFontData" id=3]
+
+
 
 [sub_resource type="DynamicFont" id=1]
 
