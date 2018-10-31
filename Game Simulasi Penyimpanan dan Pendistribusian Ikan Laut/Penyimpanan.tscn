@@ -1,11 +1,26 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Penyimpanan.gd" type="Script" id=1]
 [ext_resource path="res://assets/levelPengolahan.png" type="Texture" id=2]
-[ext_resource path="res://troliLemuru.tscn" type="PackedScene" id=3]
-[ext_resource path="res://troliSlengseng.tscn" type="PackedScene" id=4]
-[ext_resource path="res://troliTongkol.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fLemuru.png" type="Texture" id=3]
+[ext_resource path="res://assets/lLemuru.png" type="Texture" id=4]
+[ext_resource path="res://assets/lSlengseng.png" type="Texture" id=5]
+[ext_resource path="res://assets/lTongkol.png" type="Texture" id=6]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32.2341 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32.2341 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32.2341 )
 
 [node name="NPenyimpanan" type="Node2D" index="0"]
 
@@ -16,88 +31,594 @@ script = ExtResource( 1 )
 position = Vector2( 512.217, 300.186 )
 texture = ExtResource( 2 )
 
-[node name="troli1" parent="." index="1" instance=ExtResource( 3 )]
+[node name="SSlot1" type="Sprite" parent="." index="1"]
+
+visible = false
+position = Vector2( 236.321, 285.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot2" type="Sprite" parent="." index="2"]
+
+visible = false
+position = Vector2( 386.321, 285.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot3" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 536.321, 285.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot4" type="Sprite" parent="." index="4"]
+
+visible = false
+position = Vector2( 686.321, 285.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot5" type="Sprite" parent="." index="5"]
+
+visible = false
+position = Vector2( 836.321, 285.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot6" type="Sprite" parent="." index="6"]
+
+visible = false
+position = Vector2( 236.321, 114.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot7" type="Sprite" parent="." index="7"]
+
+visible = false
+position = Vector2( 386.321, 114.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot8" type="Sprite" parent="." index="8"]
+
+visible = false
+position = Vector2( 536.321, 114.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot9" type="Sprite" parent="." index="9"]
+
+visible = false
+position = Vector2( 686.321, 114.566 )
+texture = ExtResource( 3 )
+
+[node name="SSlot10" type="Sprite" parent="." index="10"]
+
+visible = false
+position = Vector2( 836.321, 114.566 )
+texture = ExtResource( 3 )
+
+[node name="troli1" type="Sprite" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 48, 507 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="troli2" parent="." index="2" instance=ExtResource( 4 )]
+[node name="Area2D1" type="Area2D" parent="troli1" index="0"]
 
-editor/display_folded = true
-position = Vector2( 48, 507 )
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[node name="troli3" parent="." index="3" instance=ExtResource( 3 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli1/Area2D1" index="0"]
 
-editor/display_folded = true
-position = Vector2( 48, 507 )
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 1 )
 
-[node name="troli4" parent="." index="4" instance=ExtResource( 3 )]
-
-editor/display_folded = true
-position = Vector2( 48, 507 )
-
-[node name="troli5" parent="." index="5" instance=ExtResource( 4 )]
-
-editor/display_folded = true
-position = Vector2( 48, 507 )
-
-[node name="troli6" parent="." index="6" instance=ExtResource( 5 )]
-
-editor/display_folded = true
-position = Vector2( 48, 507 )
-
-[node name="troli7" parent="." index="7" instance=ExtResource( 3 )]
+[node name="troli2" type="Sprite" parent="." index="12"]
 
 editor/display_folded = true
 position = Vector2( 48, 507 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="troli8" parent="." index="8" instance=ExtResource( 5 )]
+[node name="Area2D2" type="Area2D" parent="troli2" index="0"]
 
-position = Vector2( 48, 507 )
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[node name="troli9" parent="." index="9" instance=ExtResource( 3 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli2/Area2D2" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="troli3" type="Sprite" parent="." index="13"]
 
 editor/display_folded = true
 position = Vector2( 48, 507 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="troli10" parent="." index="10" instance=ExtResource( 4 )]
+[node name="Area2D3" type="Area2D" parent="troli3" index="0"]
 
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli3/Area2D3" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 1 )
+
+[node name="troli4" type="Sprite" parent="." index="14"]
+
+editor/display_folded = true
 position = Vector2( 48, 507 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
-[connection signal="area_entered" from="troli1/Area2D" to="." method="_on_Area2D_area_entered"]
+[node name="Area2D4" type="Area2D" parent="troli4" index="0"]
 
-[connection signal="area_entered" from="troli2/Area2D" to="." method="_on_Area2D_area_entered"]
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[connection signal="area_entered" from="troli3/Area2D" to="." method="_on_Area2D_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli4/Area2D4" index="0"]
 
-[connection signal="area_entered" from="troli4/Area2D" to="." method="_on_Area2D_area_entered"]
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 1 )
 
-[connection signal="area_entered" from="troli5/Area2D" to="." method="_on_Area2D_area_entered"]
+[node name="troli5" type="Sprite" parent="." index="15"]
 
-[connection signal="area_entered" from="troli6/Area2D" to="." method="_on_Area2D_area_entered"]
+editor/display_folded = true
+position = Vector2( 48, 507 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
-[connection signal="area_entered" from="troli7/Area2D" to="." method="_on_Area2D_area_entered"]
+[node name="Area2D5" type="Area2D" parent="troli5" index="0"]
 
-[connection signal="area_entered" from="troli8/Area2D" to="." method="_on_Area2D_area_entered"]
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 
-[connection signal="mouse_entered" from="troli8/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli5/Area2D5" index="0"]
 
-[connection signal="area_entered" from="troli9/Area2D" to="." method="_on_Area2D_area_entered"]
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
 
-[connection signal="mouse_entered" from="troli9/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[node name="troli6" type="Sprite" parent="." index="16"]
 
-[connection signal="area_entered" from="troli10/Area2D" to="." method="_on_Area2D_area_entered"]
+editor/display_folded = true
+position = Vector2( 48, 507 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
 
-[connection signal="mouse_entered" from="troli10/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[node name="Area2D6" type="Area2D" parent="troli6" index="0"]
+
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli6/Area2D6" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 3 )
+
+[node name="troli7" type="Sprite" parent="." index="17"]
+
+editor/display_folded = true
+position = Vector2( 48, 507 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D7" type="Area2D" parent="troli7" index="0"]
+
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli7/Area2D7" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 1 )
+
+[node name="troli8" type="Sprite" parent="." index="18"]
+
+editor/display_folded = true
+position = Vector2( 48, 507 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D8" type="Area2D" parent="troli8" index="0"]
+
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli8/Area2D8" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 3 )
+
+[node name="troli9" type="Sprite" parent="." index="19"]
+
+editor/display_folded = true
+position = Vector2( 48, 507 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D9" type="Area2D" parent="troli9" index="0"]
+
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli9/Area2D9" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 1 )
+
+[node name="troli10" type="Sprite" parent="." index="20"]
+
+editor/display_folded = true
+position = Vector2( 48, 507 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area2D10" type="Area2D" parent="troli10" index="0"]
+
+position = Vector2( -0.136561, -0.122321 )
+scale = Vector2( 1.50101, 2.5002 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="troli10/Area2D10" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot1" type="Area2D" parent="." index="21"]
+
+editor/display_folded = true
+position = Vector2( 236, 310 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot1" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot2" type="Area2D" parent="." index="22"]
+
+editor/display_folded = true
+position = Vector2( 386, 310 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot2" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot3" type="Area2D" parent="." index="23"]
+
+editor/display_folded = true
+position = Vector2( 536, 310 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot3" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot4" type="Area2D" parent="." index="24"]
+
+editor/display_folded = true
+position = Vector2( 686, 310 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot4" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot5" type="Area2D" parent="." index="25"]
+
+editor/display_folded = true
+position = Vector2( 836, 310 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot5" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot6" type="Area2D" parent="." index="26"]
+
+editor/display_folded = true
+position = Vector2( 236, 135 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot6" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot7" type="Area2D" parent="." index="27"]
+
+editor/display_folded = true
+position = Vector2( 386, 135 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot7" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot8" type="Area2D" parent="." index="28"]
+
+editor/display_folded = true
+position = Vector2( 536, 135 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot8" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot9" type="Area2D" parent="." index="29"]
+
+editor/display_folded = true
+position = Vector2( 686, 135 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot9" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[node name="Area2DSlot10" type="Area2D" parent="." index="30"]
+
+editor/display_folded = true
+position = Vector2( 836, 135 )
+scale = Vector2( 1.76005, 1.42188 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DSlot10" index="0"]
+
+position = Vector2( 0, 0.073349 )
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="troli1/Area2D1" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli1/Area2D1" to="." method="_on_Area2D1_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli1/Area2D1" to="." method="_on_Area2D1_mouse_exited"]
+
+[connection signal="area_entered" from="troli2/Area2D2" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli2/Area2D2" to="." method="_on_Area2D2_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli2/Area2D2" to="." method="_on_Area2D2_mouse_exited"]
+
+[connection signal="area_entered" from="troli3/Area2D3" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli3/Area2D3" to="." method="_on_Area2D3_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli3/Area2D3" to="." method="_on_Area2D3_mouse_exited"]
+
+[connection signal="area_entered" from="troli4/Area2D4" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli4/Area2D4" to="." method="_on_Area2D4_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli4/Area2D4" to="." method="_on_Area2D4_mouse_exited"]
+
+[connection signal="area_entered" from="troli5/Area2D5" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli5/Area2D5" to="." method="_on_Area2D5_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli5/Area2D5" to="." method="_on_Area2D5_mouse_exited"]
+
+[connection signal="area_entered" from="troli6/Area2D6" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli6/Area2D6" to="." method="_on_Area2D6_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli6/Area2D6" to="." method="_on_Area2D6_mouse_exited"]
+
+[connection signal="area_entered" from="troli7/Area2D7" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli7/Area2D7" to="." method="_on_Area2D7_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli7/Area2D7" to="." method="_on_Area2D7_mouse_exited"]
+
+[connection signal="area_entered" from="troli8/Area2D8" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli8/Area2D8" to="." method="_on_Area2D8_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli8/Area2D8" to="." method="_on_Area2D8_mouse_exited"]
+
+[connection signal="area_entered" from="troli9/Area2D9" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli9/Area2D9" to="." method="_on_Area2D9_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli9/Area2D9" to="." method="_on_Area2D9_mouse_exited"]
+
+[connection signal="area_entered" from="troli10/Area2D10" to="." method="_on_Area2D_area_entered"]
+
+[connection signal="mouse_entered" from="troli10/Area2D10" to="." method="_on_Area2D10_mouse_entered"]
+
+[connection signal="mouse_exited" from="troli10/Area2D10" to="." method="_on_Area2D10_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot1" to="." method="_on_Area2DSlot1_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot1" to="." method="_on_Area2DSlot1_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot2" to="." method="_on_Area2DSlot2_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot2" to="." method="_on_Area2DSlot2_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot3" to="." method="_on_Area2DSlot3_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot3" to="." method="_on_Area2DSlot3_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot4" to="." method="_on_Area2DSlot4_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot4" to="." method="_on_Area2DSlot4_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot5" to="." method="_on_Area2DSlot5_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot5" to="." method="_on_Area2DSlot5_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot6" to="." method="_on_Area2DSlot6_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot6" to="." method="_on_Area2DSlot6_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot7" to="." method="_on_Area2DSlot7_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot7" to="." method="_on_Area2DSlot7_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot8" to="." method="_on_Area2DSlot8_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot8" to="." method="_on_Area2DSlot8_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot9" to="." method="_on_Area2DSlot9_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot9" to="." method="_on_Area2DSlot9_mouse_exited"]
+
+[connection signal="mouse_entered" from="Area2DSlot10" to="." method="_on_Area2DSlot10_mouse_entered"]
+
+[connection signal="mouse_exited" from="Area2DSlot10" to="." method="_on_Area2DSlot10_mouse_exited"]
 
 
-[editable path="troli1"]
-[editable path="troli2"]
-[editable path="troli3"]
-[editable path="troli4"]
-[editable path="troli5"]
-[editable path="troli6"]
-[editable path="troli7"]
-[editable path="troli8"]
-[editable path="troli9"]
-[editable path="troli10"]

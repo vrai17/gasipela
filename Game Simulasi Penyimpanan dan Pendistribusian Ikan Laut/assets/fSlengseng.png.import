@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/loyang.png-bb58437ee4468ab8b49217d4dce9a251.stex"
+path="res://.import/fSlengseng.png-46e2d8d3dadf28595bd9297fa1f573a4.stex"
 
 [deps]
 
-source_file="res://assets/loyang.png"
-source_md5="d61eb8a1de2c9c9fb2a954269342ee0c"
+source_file="res://assets/fSlengseng.png"
+source_md5="15ae3cbd06e5a865a9619e4aea222f03"
 
-dest_files=[ "res://.import/loyang.png-bb58437ee4468ab8b49217d4dce9a251.stex" ]
-dest_md5="b490a4ca323332e33da3a99adba54449"
+dest_files=[ "res://.import/fSlengseng.png-46e2d8d3dadf28595bd9297fa1f573a4.stex" ]
+dest_md5="84f83b032c9e7723c53f17c368286e12"
 
 [params]
 

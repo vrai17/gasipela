@@ -62,40 +62,42 @@ func _on_BDaftar_pressed():
 	var getNama = get_node("NMenuLogin/TNama").text
 	var getPass = get_node("NMenuLogin/TPassword").text
 	var klikDaftar = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"' "))
-	if len(klikDaftar) > 0:
-		$NMenuLogin/PNamaSama.show()
-	else:
-		var klikDaftar2 = db.query(str("INSERT INTO dbgame VALUES (null,'"+ str(getNama)+"','" + str(getPass)+"','0','0')"))
-		klikDaftar = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"' "))
-		if (klikDaftar and not klikDaftar.empty()):
-			nama2 = klikDaftar[0]['nama']
-			$NMenuAwal/LUser.text = str(nama2)
-			iSkor1 = klikDaftar[0]['skor1']
-			$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
-			iSkor2 = klikDaftar[0]['skor2']
-			$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
-		$NMenuLogin.hide()
-		$NMenuAwal.show()
+	if getNama or getPass != "":
+		if len(klikDaftar) > 0:
+			$NMenuLogin/PNamaSama.show()
+		else:
+			var klikDaftar2 = db.query(str("INSERT INTO dbgame VALUES (null,'"+ str(getNama)+"','" + str(getPass)+"','0','0')"))
+			klikDaftar = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"' "))
+			if (klikDaftar and not klikDaftar.empty()):
+				nama2 = klikDaftar[0]['nama']
+				$NMenuAwal/LUser.text = str(nama2)
+				iSkor1 = klikDaftar[0]['skor1']
+				$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
+				iSkor2 = klikDaftar[0]['skor2']
+				$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
+			$NMenuLogin.hide()
+			$NMenuAwal.show()
 
 func _on_BLogin_pressed():
 	var getNama2 = get_node("NMenuLogin/TNama").text
 	var getPass2 = get_node("NMenuLogin/TPassword").text
 	var klikLogin = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama2) +"' and pass='" + str(getPass2) +"' "))
 	
-	if len(klikLogin) > 0:
-		$NMenuLogin.hide()
-		$NMenuAwal.show()
-		$NMenuAwal/LUser
-		# Retrieve current highscore
-		if (klikLogin and not klikLogin.empty()):
-			nama2 = klikLogin[0]['nama']
-			$NMenuAwal/LUser.text = str(nama2)
-			iSkor1 = klikLogin[0]['skor1']
-			$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
-			iSkor2 = klikLogin[0]['skor2']
-			$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
-	else:
-		$NMenuLogin/PPassSalah.show()
+	if getNama2 or getPass2 != "":
+		if len(klikLogin) > 0:
+			$NMenuLogin.hide()
+			$NMenuAwal.show()
+			$NMenuAwal/LUser
+			# Retrieve current highscore
+			if (klikLogin and not klikLogin.empty()):
+				nama2 = klikLogin[0]['nama']
+				$NMenuAwal/LUser.text = str(nama2)
+				iSkor1 = klikLogin[0]['skor1']
+				$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
+				iSkor2 = klikLogin[0]['skor2']
+				$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
+		else:
+			$NMenuLogin/PPassSalah.show()
 	pass
 	
 func _on_BExit_pressed():
