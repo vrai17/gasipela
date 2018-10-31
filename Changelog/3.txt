@@ -1,0 +1,2 @@
+- penyempurnaan fungsi troli ikan
+- pembuatan fungsi drag and drop
