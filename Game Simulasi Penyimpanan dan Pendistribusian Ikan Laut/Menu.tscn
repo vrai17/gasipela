@@ -9,7 +9,7 @@
 [ext_resource path="res://MenuAbout.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menuskor.tscn" type="PackedScene" id=8]
 
-[node name="NMenu" type="Node2D" index="0"]
+[node name="NMenu" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
