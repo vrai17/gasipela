@@ -6,7 +6,7 @@ var iSkor1
 var iSkor2
 var nama2
 
-func _ready():
+func prepareDatabase():
 	# Create gdsqlite instance
 	db = SQLite.new()
 	# Open the database
@@ -17,15 +17,35 @@ func _ready():
 	if (not db.query(query)):
 		return;
 
-	importSkor()
+func resetMusic():
+	if Global.musik == 1:
+		$NMenuAwal/BSoundOn.show()
+		$NMenuAwal/BSoundOff.hide()
+	else:
+		$NMenuAwal/BSoundOff.show()
+		$NMenuAwal/BSoundOn.hide()
 
+func _ready():
+	prepareDatabase()
+	resetMusic()
+	importSkor()
+	startScene()
+	
+	if Global.login == 1 && Global.musik == 1:
+		$Backsound.play()
+	pass
+	
+func startScene():
 	# Menampilkan dan menyembunyikan scene awal pemulaian
-	$NMenuLogin.show()
-	$NMenuAwal.hide()
+	if Global.login == 0:
+		$NMenuLogin.show()
+		$NMenuAwal.hide()
+	else:
+		$NMenuLogin.hide()
+		$NMenuAwal.show()
 	$NMenuJenis.hide()
 	$NAbout.hide()
 	$NSkor.hide()
-	pass
 	
 func importSkor():
 	var skorPenyimpanan = get_node("NSkor/SkorPenyimpanan")
@@ -77,28 +97,59 @@ func _on_BDaftar_pressed():
 				$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
 			$NMenuLogin.hide()
 			$NMenuAwal.show()
+		
+			#Menyimpan status login
+			Global.login = 1
+			#Play backsound
+			if Global.login == 1 && Global.musik == 1:
+				$Backsound.play()
+	else:
+		$NMenuLogin/PNamaKosong.show()
 
 func _on_BLogin_pressed():
 	var getNama2 = get_node("NMenuLogin/TNama").text
 	var getPass2 = get_node("NMenuLogin/TPassword").text
 	var klikLogin = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama2) +"' and pass='" + str(getPass2) +"' "))
-	
+	var klikLoginUser = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama2) +"'  "))
+	var klikLoginPass = db.fetch_array(str("SELECT * FROM dbgame Where pass='" + str(getPass2) +"'  "))
 	if getNama2 or getPass2 != "":
-		if len(klikLogin) > 0:
-			$NMenuLogin.hide()
-			$NMenuAwal.show()
-			$NMenuAwal/LUser
-			# Retrieve current highscore
-			if (klikLogin and not klikLogin.empty()):
-				nama2 = klikLogin[0]['nama']
-				$NMenuAwal/LUser.text = str(nama2)
-				iSkor1 = klikLogin[0]['skor1']
-				$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
-				iSkor2 = klikLogin[0]['skor2']
-				$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
+		if len(klikLoginUser) > 0:
+			if len(klikLogin) > 0:
+				$NMenuLogin.hide()
+				$NMenuAwal.show()
+				$NMenuAwal/LUser
+				# Retrieve current highscore
+				if (klikLogin and not klikLogin.empty()):
+					nama2 = klikLogin[0]['nama']
+					$NMenuAwal/LUser.text = str(nama2)
+					iSkor1 = klikLogin[0]['skor1']
+					$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
+					iSkor2 = klikLogin[0]['skor2']
+					$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
+					#Menyimpan status login
+					Global.login = 1
+					#Play Backsound
+					if Global.login == 1 && Global.musik == 1:
+						$Backsound.play()
+			else:
+				$NMenuLogin/PPassSalah.show()
 		else:
-			$NMenuLogin/PPassSalah.show()
+			$NMenuLogin/PUserSalah.show()
+	else:
+		$NMenuLogin/PNamaKosong.show()
 	pass
+	
+func _on_BSoundOn_pressed():
+	$NMenuAwal/BSoundOff.show()
+	$NMenuAwal/BSoundOn.hide()
+	Global.musik = 0
+	$Backsound.stop()
+
+func _on_BSoundOff_pressed():
+	$NMenuAwal/BSoundOn.show()
+	$NMenuAwal/BSoundOff.hide()
+	Global.musik = 1
+	$Backsound.play()
 	
 func _on_BExit_pressed():
 	# Close database
@@ -129,6 +180,9 @@ func _on_BLogout_pressed():
 	$NMenuLogin/TPassword.text = ""
 	$NMenuAwal.hide()
 	$NMenuLogin.show()
+	#Menyimpan status login
+	Global.login = 0
+	$Backsound.stop()
 
 func _on_BPenyimpanan_pressed():
 	get_tree().change_scene("res://Penyimpanan.tscn")
@@ -143,3 +197,18 @@ func _on_BOkPassSalah_pressed():
 	$NMenuLogin/TNama.text = ""
 	$NMenuLogin/TPassword.text = ""
 	$NMenuLogin/PPassSalah.hide()
+
+func _on_BDistribusi_pressed():
+	get_tree().change_scene("res://Pendistribusian.tscn")
+	pass
+
+func _on_BOkNamaKosong_pressed():
+	$NMenuLogin/TNama.text = ""
+	$NMenuLogin/TPassword.text = ""
+	$NMenuLogin/PNamaKosong.hide()
+
+
+func _on_BOkUserSalah_pressed():
+	$NMenuLogin/TNama.text = ""
+	$NMenuLogin/TPassword.text = ""
+	$NMenuLogin/PUserSalah.hide()

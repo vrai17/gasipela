@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Penyimpanan.gd" type="Script" id=1]
 [ext_resource path="res://assets/levelPengolahan.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://assets/lLemuru.png" type="Texture" id=4]
 [ext_resource path="res://assets/lSlengseng.png" type="Texture" id=5]
 [ext_resource path="res://assets/lTongkol.png" type="Texture" id=6]
+[ext_resource path="res://StatusBar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Pause.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Backsound2.ogg" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,7 +25,7 @@ extents = Vector2( 32, 32.2341 )
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32.2341 )
 
-[node name="NPenyimpanan" type="Node2D"]
+[node name="NPenyimpanan" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -93,13 +96,13 @@ texture = ExtResource( 3 )
 
 [node name="troli1" type="Sprite" parent="." index="11"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D1" type="Area2D" parent="troli1" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -117,13 +120,13 @@ shape = SubResource( 1 )
 
 [node name="troli2" type="Sprite" parent="." index="12"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D2" type="Area2D" parent="troli2" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -141,13 +144,13 @@ shape = SubResource( 2 )
 
 [node name="troli3" type="Sprite" parent="." index="13"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D3" type="Area2D" parent="troli3" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -165,13 +168,13 @@ shape = SubResource( 1 )
 
 [node name="troli4" type="Sprite" parent="." index="14"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D4" type="Area2D" parent="troli4" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -189,13 +192,13 @@ shape = SubResource( 1 )
 
 [node name="troli5" type="Sprite" parent="." index="15"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D5" type="Area2D" parent="troli5" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -213,13 +216,13 @@ shape = SubResource( 2 )
 
 [node name="troli6" type="Sprite" parent="." index="16"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D6" type="Area2D" parent="troli6" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -237,13 +240,13 @@ shape = SubResource( 3 )
 
 [node name="troli7" type="Sprite" parent="." index="17"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D7" type="Area2D" parent="troli7" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -261,13 +264,13 @@ shape = SubResource( 1 )
 
 [node name="troli8" type="Sprite" parent="." index="18"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D8" type="Area2D" parent="troli8" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -285,13 +288,13 @@ shape = SubResource( 3 )
 
 [node name="troli9" type="Sprite" parent="." index="19"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D9" type="Area2D" parent="troli9" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -309,13 +312,13 @@ shape = SubResource( 1 )
 
 [node name="troli10" type="Sprite" parent="." index="20"]
 
-editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area2D10" type="Area2D" parent="troli10" index="0"]
 
+editor/display_folded = true
 position = Vector2( -0.136561, -0.122321 )
 scale = Vector2( 1.50101, 2.5002 )
 input_pickable = true
@@ -521,6 +524,20 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 0, 0.073349 )
 shape = SubResource( 2 )
 
+[node name="StatusBar" parent="." index="31" instance=ExtResource( 7 )]
+
+[node name="NPause" parent="." index="32" instance=ExtResource( 8 )]
+
+visible = false
+
+[node name="Backsound" type="AudioStreamPlayer" parent="." index="33"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="area_entered" from="troli1/Area2D1" to="." method="_on_Area2D_area_entered"]
 
 [connection signal="mouse_entered" from="troli1/Area2D1" to="." method="_on_Area2D1_mouse_entered"]
@@ -621,4 +638,16 @@ shape = SubResource( 2 )
 
 [connection signal="mouse_exited" from="Area2DSlot10" to="." method="_on_Area2DSlot10_mouse_exited"]
 
+[connection signal="pressed" from="StatusBar/BMenu" to="." method="_on_BMenu_pressed"]
 
+[connection signal="pressed" from="NPause/BKembali" to="." method="_on_BKembali_pressed"]
+
+[connection signal="pressed" from="NPause/BRestart" to="." method="_on_BRestart_pressed"]
+
+[connection signal="pressed" from="NPause/BMusik" to="." method="_on_BMusik_pressed"]
+
+[connection signal="pressed" from="NPause/BMainMenu" to="." method="_on_BMainMenu_pressed"]
+
+
+[editable path="StatusBar"]
+[editable path="NPause"]

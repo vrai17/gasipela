@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Distribusi.png-0efe0051b8be02e951799ebdc03556ea.stex"
+path="res://.import/lemuru.png-32022dc042fa2b5f760bafb93a7aed52.stex"
 
 [deps]
 
-source_file="res://assets/Distribusi.png"
-source_md5="9946bbf41139e91e067aa5531c8c527f"
+source_file="res://assets/lemuru.png"
+source_md5="c48087aed7800e0e9aff962f279735b0"
 
-dest_files=[ "res://.import/Distribusi.png-0efe0051b8be02e951799ebdc03556ea.stex" ]
-dest_md5="071b097276d5ffaa6e0bd9b81e306803"
+dest_files=[ "res://.import/lemuru.png-32022dc042fa2b5f760bafb93a7aed52.stex" ]
+dest_md5="65f248411b097e08f4baa2719f25d678"
 
 [params]
 

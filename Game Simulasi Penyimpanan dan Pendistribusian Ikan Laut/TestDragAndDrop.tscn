@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Node.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Node" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite1" type="Sprite" parent="." index="0"]
+
+position = Vector2( 113, 95 )
+scale = Vector2( 0.871566, 0.898437 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Sprite1" index="0"]
+
+position = Vector2( 2.86842, -2.7826 )
+scale = Vector2( 1.237, 1.13044 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite1/Area2D" index="0"]
+
+position = Vector2( -2.50001, 2.46154 )
+scale = Vector2( 2.65385, 2.65089 )
+shape = SubResource( 1 )
+
+[connection signal="mouse_entered" from="Sprite1/Area2D" to="." method="_on_Area2D_mouse_entered"]
+
+[connection signal="mouse_exited" from="Sprite1/Area2D" to="." method="_on_Area2D_mouse_exited"]
+
+

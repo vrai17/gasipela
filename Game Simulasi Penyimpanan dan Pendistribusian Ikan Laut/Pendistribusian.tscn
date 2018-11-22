@@ -1,9 +1,17 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Pendistribusian.gd" type="Script" id=1]
 [ext_resource path="res://assets/Distribusi.png" type="Texture" id=2]
-[ext_resource path="res://assets/IconOrderLemuru.png" type="Texture" id=3]
-[ext_resource path="res://assets/truckTop.png" type="Texture" id=4]
+[ext_resource path="res://assets/oLemuru.png" type="Texture" id=3]
+[ext_resource path="res://assets/oSlengseng.png" type="Texture" id=4]
+[ext_resource path="res://assets/oTongkol.png" type="Texture" id=5]
+[ext_resource path="res://StatusBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/IconOrderLemuru.png" type="Texture" id=7]
+[ext_resource path="res://assets/truckBlue.png" type="Texture" id=8]
+[ext_resource path="res://assets/truckGreen.png" type="Texture" id=9]
+[ext_resource path="res://assets/truckRed.png" type="Texture" id=10]
+[ext_resource path="res://Pause.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/Backsound2.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -114,38 +122,177 @@ _data = {
 
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Background" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 512.222, 300.283 )
 texture = ExtResource( 2 )
 
-[node name="IconOrderLemuru" type="Sprite" parent="Sprite" index="0"]
+[node name="STLemuru" type="Sprite" parent="Background" index="0"]
 
-position = Vector2( -83.2215, -225.38 )
+position = Vector2( -123.073, 194.534 )
 texture = ExtResource( 3 )
 
-[node name="IconOrderLemuru2" type="Sprite" parent="Sprite" index="1"]
+[node name="STSlengseng" type="Sprite" parent="Background" index="1"]
 
-position = Vector2( 163.779, -226.38 )
-texture = ExtResource( 3 )
+visible = false
+position = Vector2( 60.5773, 194.534 )
+texture = ExtResource( 4 )
 
-[node name="IconOrderLemuru3" type="Sprite" parent="Sprite" index="2"]
+[node name="STTongkol" type="Sprite" parent="Background" index="2"]
 
-position = Vector2( -275.222, -57.3799 )
-texture = ExtResource( 3 )
+visible = false
+position = Vector2( 241.147, 194.534 )
+texture = ExtResource( 5 )
 
-[node name="IconOrderLemuru4" type="Sprite" parent="Sprite" index="3"]
+[node name="StatusBar" parent="." index="1" instance=ExtResource( 6 )]
 
-position = Vector2( 262.779, -98.3799 )
-texture = ExtResource( 3 )
+[node name="IconOrder1" type="Sprite" parent="." index="2"]
 
-[node name="IconOrderLemuru5" type="Sprite" parent="Sprite" index="4"]
+position = Vector2( 429, 87.903 )
+texture = ExtResource( 7 )
 
-position = Vector2( 5.77869, -98.3799 )
-texture = ExtResource( 3 )
+[node name="BOrder1" type="Button" parent="IconOrder1" index="0"]
 
-[node name="PathTongkol1" type="Path2D" parent="." index="1"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -33.0
+margin_top = -41.903
+margin_right = 33.0
+margin_bottom = 24.097
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+
+[node name="IconOrder2" type="Sprite" parent="." index="3"]
+
+position = Vector2( 676.001, 87.903 )
+texture = ExtResource( 7 )
+
+[node name="BOrder2" type="Button" parent="IconOrder2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -33.001
+margin_top = -41.903
+margin_right = 31.999
+margin_bottom = 24.097
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+
+[node name="IconOrder3" type="Sprite" parent="." index="4"]
+
+position = Vector2( 237, 242.903 )
+texture = ExtResource( 7 )
+
+[node name="BOrder3" type="Button" parent="IconOrder3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -33.0
+margin_top = -41.903
+margin_right = 33.0
+margin_bottom = 23.097
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+
+[node name="IconOrder4" type="Sprite" parent="." index="5"]
+
+position = Vector2( 518.001, 201.903 )
+texture = ExtResource( 7 )
+
+[node name="BOrder4" type="Button" parent="IconOrder4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -33.0
+margin_top = -42.0
+margin_right = 33.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+
+[node name="IconOrder5" type="Sprite" parent="." index="6"]
+
+position = Vector2( 775.001, 201.903 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="BOrder5" type="Button" parent="IconOrder5" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -33.0
+margin_top = -42.0
+margin_right = 33.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+
+[node name="PathTongkol1" type="Path2D" parent="." index="7"]
 
 editor/display_folded = true
 visible = false
@@ -164,13 +311,13 @@ cubic_interp = true
 loop = false
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathTongkol1/FollowTongkol1" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathTongkol1/FollowTongkol1" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathTongkol2" type="Path2D" parent="." index="2"]
+[node name="PathTongkol2" type="Path2D" parent="." index="8"]
 
 editor/display_folded = true
 visible = false
@@ -181,9 +328,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="FollowTongkol2" type="PathFollow2D" parent="PathTongkol2" index="0"]
 
-position = Vector2( -0.645752, -1.41336 )
-rotation = 0.00333063
-offset = 0.0
+position = Vector2( -122.756, -279.658 )
+rotation = -3.00904
+offset = 644.797
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -191,13 +338,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathTongkol2/FollowTongkol2" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathTongkol2/FollowTongkol2" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathTongkol3" type="Path2D" parent="." index="3"]
+[node name="PathTongkol3" type="Path2D" parent="." index="9"]
 
 editor/display_folded = true
 visible = false
@@ -205,9 +352,9 @@ curve = SubResource( 3 )
 
 [node name="FollowTongkol3" type="PathFollow2D" parent="PathTongkol3" index="0"]
 
-position = Vector2( 753.425, 449.593 )
-rotation = -3.13916
-offset = 0.0
+position = Vector2( 261.263, 306.497 )
+rotation = -1.55228
+offset = 632.35
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -215,13 +362,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathTongkol3/FollowTongkol3" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathTongkol3/FollowTongkol3" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathTongkol4" type="Path2D" parent="." index="4"]
+[node name="PathTongkol4" type="Path2D" parent="." index="10"]
 
 editor/display_folded = true
 visible = false
@@ -232,9 +379,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="FollowTongkol4" type="PathFollow2D" parent="PathTongkol4" index="0"]
 
-position = Vector2( 1.31165, 0.114563 )
-rotation = -3.13889
-offset = 0.0
+position = Vector2( 268.685, 152.734 )
+rotation = -0.0624188
+offset = 668.75
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -242,13 +389,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathTongkol4/FollowTongkol4" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathTongkol4/FollowTongkol4" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathTongkol5" type="Path2D" parent="." index="5"]
+[node name="PathTongkol5" type="Path2D" parent="." index="11"]
 
 editor/display_folded = true
 visible = false
@@ -258,9 +405,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="FollowTongkol5" type="PathFollow2D" parent="PathTongkol5" index="0"]
 
-position = Vector2( 752.755, 448.765 )
-rotation = 0.0063306
-offset = 0.0
+position = Vector2( 744.11, 294.762 )
+rotation = 3.1166
+offset = 405.91
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -269,13 +416,13 @@ loop = true
 lookahead = 4.0
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Sprite" type="Sprite" parent="PathTongkol5/FollowTongkol5" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathTongkol5/FollowTongkol5" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="PathSlengseng1" type="Path2D" parent="." index="6"]
+[node name="PathSlengseng1" type="Path2D" parent="." index="12"]
 
 editor/display_folded = true
 visible = false
@@ -283,9 +430,9 @@ curve = SubResource( 6 )
 
 [node name="FollowSlengseng1" type="PathFollow2D" parent="PathSlengseng1" index="0"]
 
-position = Vector2( 573.346, 449.457 )
-rotation = 3.14158
-offset = 0.0
+position = Vector2( 386.253, 168.83 )
+rotation = 0.0055555
+offset = 714.41
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -293,13 +440,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathSlengseng1/FollowSlengseng1" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathSlengseng1/FollowSlengseng1" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathSlengseng2" type="Path2D" parent="." index="7"]
+[node name="PathSlengseng2" type="Path2D" parent="." index="13"]
 
 editor/display_folded = true
 visible = false
@@ -307,10 +454,10 @@ position = Vector2( 573.346, 449.457 )
 rotation = -1.5708
 curve = SubResource( 7 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PathSlengseng2" index="0"]
+[node name="FollowSlengseng2" type="PathFollow2D" parent="PathSlengseng2" index="0"]
 
 rotation = 1.56862
-offset = 0.0
+offset = 824.6
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -318,13 +465,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathSlengseng2/PathFollow2D" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathSlengseng2/FollowSlengseng2" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathSlengseng3" type="Path2D" parent="." index="8"]
+[node name="PathSlengseng3" type="Path2D" parent="." index="14"]
 
 editor/display_folded = true
 visible = false
@@ -334,8 +481,9 @@ curve = SubResource( 8 )
 
 [node name="FollowSlengseng3" type="PathFollow2D" parent="PathSlengseng3" index="0"]
 
-rotation = 1.57298
-offset = 0.0
+position = Vector2( -141.987, 311.499 )
+rotation = -3.11834
+offset = 451.38
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -343,23 +491,23 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathSlengseng3/FollowSlengseng3" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathSlengseng3/FollowSlengseng3" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathSlengseng4" type="Path2D" parent="." index="9"]
+[node name="PathSlengseng4" type="Path2D" parent="." index="15"]
 
 editor/display_folded = true
 visible = false
 curve = SubResource( 9 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="PathSlengseng4" index="0"]
+[node name="FollowSlengseng4" type="PathFollow2D" parent="PathSlengseng4" index="0"]
 
-position = Vector2( 572.019, 449.457 )
-rotation = -0.00433218
-offset = 0.0
+position = Vector2( 485.113, 295.544 )
+rotation = -3.12861
+offset = 847.49
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -367,13 +515,13 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathSlengseng4/PathFollow2D" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathSlengseng4/FollowSlengseng4" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathSlengseng5" type="Path2D" parent="." index="10"]
+[node name="PathSlengseng5" type="Path2D" parent="." index="16"]
 
 editor/display_folded = true
 visible = false
@@ -383,9 +531,9 @@ curve = SubResource( 10 )
 
 [node name="FollowSlengseng5" type="PathFollow2D" parent="PathSlengseng5" index="0"]
 
-position = Vector2( -0.66626, 0.660522 )
-rotation = -1.56646
-offset = 0.0
+position = Vector2( -153.172, -171.166 )
+rotation = 1.61622
+offset = 591.79
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
@@ -393,14 +541,16 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathSlengseng5/FollowSlengseng5" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathSlengseng5/FollowSlengseng5" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathLemuru1" type="Path2D" parent="." index="11"]
+[node name="PathLemuru1" type="Path2D" parent="." index="17"]
 
+editor/display_folded = true
+visible = false
 curve = SubResource( 11 )
 
 [node name="FollowLemuru1" type="PathFollow2D" parent="PathLemuru1" index="0"]
@@ -417,10 +567,10 @@ lookahead = 4.0
 [node name="Sprite1" type="Sprite" parent="PathLemuru1/FollowLemuru1" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathLemuru2" type="Path2D" parent="." index="12"]
+[node name="PathLemuru2" type="Path2D" parent="." index="18"]
 
 editor/display_folded = true
 visible = false
@@ -435,16 +585,16 @@ h_offset = 0.0
 v_offset = 0.0
 rotate = true
 cubic_interp = true
-loop = true
+loop = false
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathLemuru2/FollowLemuru2" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathLemuru2/FollowLemuru2" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathLemuru3" type="Path2D" parent="." index="13"]
+[node name="PathLemuru3" type="Path2D" parent="." index="19"]
 
 editor/display_folded = true
 visible = false
@@ -459,16 +609,16 @@ h_offset = 0.0
 v_offset = 0.0
 rotate = true
 cubic_interp = true
-loop = true
+loop = false
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathLemuru3/FollowLemuru3" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathLemuru3/FollowLemuru3" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathLemuru4" type="Path2D" parent="." index="14"]
+[node name="PathLemuru4" type="Path2D" parent="." index="20"]
 
 editor/display_folded = true
 visible = false
@@ -476,23 +626,23 @@ curve = SubResource( 14 )
 
 [node name="FollowLemuru4" type="PathFollow2D" parent="PathLemuru4" index="0"]
 
-position = Vector2( 391.024, 448.885 )
-rotation = -0.00121812
-offset = 0.0
+position = Vector2( 537.32, 448.705 )
+rotation = -0.00123056
+offset = 146.27
 h_offset = 0.0
 v_offset = 0.0
 rotate = true
 cubic_interp = true
-loop = true
+loop = false
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathLemuru4/FollowLemuru4" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathLemuru4/FollowLemuru4" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="PathLemuru5" type="Path2D" parent="." index="15"]
+[node name="PathLemuru5" type="Path2D" parent="." index="21"]
 
 editor/display_folded = true
 visible = false
@@ -506,39 +656,48 @@ h_offset = 0.0
 v_offset = 0.0
 rotate = true
 cubic_interp = true
-loop = true
+loop = false
 lookahead = 4.0
 
-[node name="Sprite" type="Sprite" parent="PathLemuru5/FollowLemuru5" index="0"]
+[node name="Sprite1" type="Sprite" parent="PathLemuru5/FollowLemuru5" index="0"]
 
 rotation = 1.5708
-texture = ExtResource( 4 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BOrder1" type="Button" parent="." index="16"]
+[node name="NPause" parent="." index="22" instance=ExtResource( 11 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 396.0
-margin_top = 33.0
-margin_right = 462.0
-margin_bottom = 99.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-flat = true
-align = 1
+editor/display_folded = true
+visible = false
 
-[connection signal="pressed" from="BOrder1" to="." method="_on_BOrder1_pressed"]
+[node name="Backsound" type="AudioStreamPlayer" parent="." index="23"]
+
+stream = ExtResource( 12 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="pressed" from="StatusBar/BMenu" to="." method="_on_BMenu_pressed"]
+
+[connection signal="pressed" from="IconOrder1/BOrder1" to="." method="_on_BOrder1_pressed"]
+
+[connection signal="pressed" from="IconOrder2/BOrder2" to="." method="_on_BOrder2_pressed"]
+
+[connection signal="pressed" from="IconOrder3/BOrder3" to="." method="_on_BOrder3_pressed"]
+
+[connection signal="pressed" from="IconOrder4/BOrder4" to="." method="_on_BOrder4_pressed"]
+
+[connection signal="pressed" from="IconOrder5/BOrder5" to="." method="_on_BOrder5_pressed"]
+
+[connection signal="pressed" from="NPause/BKembali" to="." method="_on_BKembali_pressed"]
+
+[connection signal="pressed" from="NPause/BRestart" to="." method="_on_BRestart_pressed"]
+
+[connection signal="pressed" from="NPause/BMusik" to="." method="_on_BMusik_pressed"]
+
+[connection signal="pressed" from="NPause/BMainMenu" to="." method="_on_BMainMenu_pressed"]
 
 
+[editable path="StatusBar"]
+[editable path="NPause"]

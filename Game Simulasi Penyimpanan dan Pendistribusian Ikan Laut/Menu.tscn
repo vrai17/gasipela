@@ -1,15 +1,25 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/sardinella.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/Logo.png" type="Texture" id=3]
 [ext_resource path="res://MenuLogin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://MenuAwal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://MenuJenis.tscn" type="PackedScene" id=6]
-[ext_resource path="res://MenuAbout.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Menuskor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://neuropol x rg.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://MenuAwal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://MenuJenis.tscn" type="PackedScene" id=7]
+[ext_resource path="res://MenuAbout.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menuskor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Backsound1.ogg" type="AudioStream" id=10]
 
-[node name="NMenu" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 22
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="NMenu" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
@@ -28,24 +38,125 @@ texture = ExtResource( 3 )
 
 [node name="NMenuLogin" parent="." index="1" instance=ExtResource( 4 )]
 
-[node name="NMenuAwal" parent="." index="2" instance=ExtResource( 5 )]
+[node name="BLogin" parent="NMenuLogin" index="0"]
+
+mouse_default_cursor_shape = 2
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
+
+[node name="BExit" parent="NMenuLogin" index="1"]
+
+mouse_default_cursor_shape = 2
+_sections_unfolded = [ "Mouse", "Theme" ]
+
+[node name="BDaftar" parent="NMenuLogin" index="2"]
+
+mouse_default_cursor_shape = 2
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
+
+[node name="LPopupNamaSama" parent="NMenuLogin/PNamaSama" index="0"]
+
+margin_top = 1.0
+margin_bottom = 78.0
+text = "Username sama
+silahkan isi kembali"
+
+[node name="LPopupPassSalah" parent="NMenuLogin/PPassSalah" index="0"]
+
+text = "Password salah"
+
+[node name="PNamaKosong" parent="NMenuLogin" index="13"]
+
+visible = true
+margin_left = 305.0
+margin_right = 775.0
+
+[node name="LPopupNamaKosong" parent="NMenuLogin/PNamaKosong" index="0"]
+
+margin_top = -2.0
+margin_right = 468.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 1 )
+text = "Maaf
+username dan password
+tidak boleh kosong"
+
+[node name="BOkNamaKosong" parent="NMenuLogin/PNamaKosong" index="1"]
+
+margin_left = 127.0
+margin_top = 90.0
+margin_right = -103.0
+margin_bottom = 146.0
+
+[node name="LOkNamaKosong" parent="NMenuLogin/PNamaKosong" index="2"]
+
+margin_left = 140.0
+margin_top = 100.0
+margin_right = 326.0
+margin_bottom = 138.0
+
+[node name="NMenuAwal" parent="." index="2" instance=ExtResource( 6 )]
 
 visible = false
 
-[node name="NMenuJenis" parent="." index="3" instance=ExtResource( 6 )]
+[node name="BPlay" parent="NMenuAwal" index="0"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BRanking" parent="NMenuAwal" index="1"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BAbout" parent="NMenuAwal" index="2"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BLogout" parent="NMenuAwal" index="3"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BSoundOn" parent="NMenuAwal" index="12"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BSoundOff" parent="NMenuAwal" index="13"]
+
+mouse_default_cursor_shape = 2
+
+[node name="NMenuJenis" parent="." index="3" instance=ExtResource( 7 )]
 
 editor/display_folded = true
 visible = false
 
-[node name="NAbout" parent="." index="4" instance=ExtResource( 7 )]
+[node name="BPenyimpanan" parent="NMenuJenis" index="0"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BDistribusi" parent="NMenuJenis" index="1"]
+
+mouse_default_cursor_shape = 2
+
+[node name="BKembali" parent="NMenuJenis" index="2"]
+
+mouse_default_cursor_shape = 2
+
+[node name="NAbout" parent="." index="4" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 visible = false
 
-[node name="NSkor" parent="." index="5" instance=ExtResource( 8 )]
+[node name="NSkor" parent="." index="5" instance=ExtResource( 9 )]
 
 editor/display_folded = true
 visible = false
+
+[node name="Backsound" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 10 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
 
 [connection signal="pressed" from="NMenuLogin/BLogin" to="." method="_on_BLogin_pressed"]
 
@@ -57,6 +168,10 @@ visible = false
 
 [connection signal="pressed" from="NMenuLogin/PPassSalah/BOkPassSalah" to="." method="_on_BOkPassSalah_pressed"]
 
+[connection signal="pressed" from="NMenuLogin/PUserSalah/BOkUserSalah" to="." method="_on_BOkUserSalah_pressed"]
+
+[connection signal="pressed" from="NMenuLogin/PNamaKosong/BOkNamaKosong" to="." method="_on_BOkNamaKosong_pressed"]
+
 [connection signal="pressed" from="NMenuAwal/BPlay" to="." method="_on_BPlay_pressed"]
 
 [connection signal="pressed" from="NMenuAwal/BRanking" to="." method="_on_BRanking_pressed"]
@@ -65,7 +180,13 @@ visible = false
 
 [connection signal="pressed" from="NMenuAwal/BLogout" to="." method="_on_BLogout_pressed"]
 
+[connection signal="pressed" from="NMenuAwal/BSoundOn" to="." method="_on_BSoundOn_pressed"]
+
+[connection signal="pressed" from="NMenuAwal/BSoundOff" to="." method="_on_BSoundOff_pressed"]
+
 [connection signal="pressed" from="NMenuJenis/BPenyimpanan" to="." method="_on_BPenyimpanan_pressed"]
+
+[connection signal="pressed" from="NMenuJenis/BDistribusi" to="." method="_on_BDistribusi_pressed"]
 
 [connection signal="pressed" from="NMenuJenis/BKembali" to="." method="_on_BKembali_pressed"]
 

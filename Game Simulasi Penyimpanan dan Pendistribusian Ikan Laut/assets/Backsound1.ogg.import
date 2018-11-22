@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Backsound1.ogg-8becb5f9994b2f02fec1943634a1791e.oggstr"
+
+[deps]
+
+source_file="res://assets/Backsound1.ogg"
+source_md5="61615e87a15bc730e69c4ad97faac8ef"
+
+dest_files=[ "res://.import/Backsound1.ogg-8becb5f9994b2f02fec1943634a1791e.oggstr" ]
+dest_md5="b62b48456f290a2a8b1bce79ea368f90"
+
+[params]
+
+loop=true
+loop_offset=0

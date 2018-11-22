@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Distribusi.png-0efe0051b8be02e951799ebdc03556ea.stex"
+path="res://.import/truckRed.png-7d28996137c27b5ba9178fcdea734550.stex"
 
 [deps]
 
-source_file="res://assets/Distribusi.png"
-source_md5="9946bbf41139e91e067aa5531c8c527f"
+source_file="res://assets/truckRed.png"
+source_md5="913575b1139bad2536e771d9e02683b0"
 
-dest_files=[ "res://.import/Distribusi.png-0efe0051b8be02e951799ebdc03556ea.stex" ]
-dest_md5="071b097276d5ffaa6e0bd9b81e306803"
+dest_files=[ "res://.import/truckRed.png-7d28996137c27b5ba9178fcdea734550.stex" ]
+dest_md5="6ebb0132a4be44950a4325e8de2fb0b0"
 
 [params]
 

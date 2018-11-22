@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Distribusi.png-0efe0051b8be02e951799ebdc03556ea.stex"
+path="res://.import/PauseMenu.png-34616b24a5921cd159deeed41ab4320e.stex"
 
 [deps]
 
-source_file="res://assets/Distribusi.png"
-source_md5="9946bbf41139e91e067aa5531c8c527f"
+source_file="res://assets/PauseMenu.png"
+source_md5="74c7535d97dee64ddfc181296ee1c1c5"
 
-dest_files=[ "res://.import/Distribusi.png-0efe0051b8be02e951799ebdc03556ea.stex" ]
-dest_md5="071b097276d5ffaa6e0bd9b81e306803"
+dest_files=[ "res://.import/PauseMenu.png-34616b24a5921cd159deeed41ab4320e.stex" ]
+dest_md5="b7a7371c8fb194720d72963db594ff70"
 
 [params]
 

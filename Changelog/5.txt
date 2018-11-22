@@ -1,0 +1,9 @@
+- Pembetulan teks popup login dan register
+- Penambahan backsound
+- Penambahan status bar
+- Penambahan popup menu pause di kedua level
+- Penyelesaian level pendistribusian
+- Pembetulan saat drag suatu troli, troli lain ikut terdrag di penyimpanan
+- Pembetulan ketidaksesuaian jenis ikan saat di drag and drop ke lemari pendingin di penyimpanan
+- Pengaktifan fitur klik kanan untuk mengangkat ikan di lemari pendingin di penyimpanan
+ 
