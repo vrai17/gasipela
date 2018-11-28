@@ -5,6 +5,10 @@ var db #temp sqlite
 var iSkor1
 var iSkor2
 var nama2
+var importhSkor1
+var importhSkor2
+var getNama
+var getPass
 
 func prepareDatabase():
 	# Create gdsqlite instance
@@ -30,11 +34,17 @@ func _ready():
 	resetMusic()
 	importSkor()
 	startScene()
-	
+	if Global.login == 1:
+		setISkor()
 	if Global.login == 1 && Global.musik == 1:
 		$Backsound.play()
 	pass
-	
+
+func _process(delta):
+	$NMenuAwal/LUser.set_text(str(Global.user))
+	$NMenuAwal/LSkorPenyimpanan.set_text(str(iSkor1))
+	$NMenuAwal/LSkorPengiriman.set_text(str(iSkor2))
+
 func startScene():
 	# Menampilkan dan menyembunyikan scene awal pemulaian
 	if Global.login == 0:
@@ -79,8 +89,8 @@ func importSkor():
 	pass
 
 func _on_BDaftar_pressed():
-	var getNama = get_node("NMenuLogin/TNama").text
-	var getPass = get_node("NMenuLogin/TPassword").text
+	getNama = get_node("NMenuLogin/TNama").text
+	getPass = get_node("NMenuLogin/TPassword").text
 	var klikDaftar = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"' "))
 	if getNama or getPass != "":
 		if len(klikDaftar) > 0:
@@ -90,11 +100,8 @@ func _on_BDaftar_pressed():
 			klikDaftar = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"' "))
 			if (klikDaftar and not klikDaftar.empty()):
 				nama2 = klikDaftar[0]['nama']
-				$NMenuAwal/LUser.text = str(nama2)
-				iSkor1 = klikDaftar[0]['skor1']
-				$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
-				iSkor2 = klikDaftar[0]['skor2']
-				$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
+				$NMenuAwal/LUser.text = str(Global.user)
+				Global.user = nama2
 			$NMenuLogin.hide()
 			$NMenuAwal.show()
 		
@@ -107,12 +114,14 @@ func _on_BDaftar_pressed():
 		$NMenuLogin/PNamaKosong.show()
 
 func _on_BLogin_pressed():
-	var getNama2 = get_node("NMenuLogin/TNama").text
-	var getPass2 = get_node("NMenuLogin/TPassword").text
-	var klikLogin = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama2) +"' and pass='" + str(getPass2) +"' "))
-	var klikLoginUser = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama2) +"'  "))
-	var klikLoginPass = db.fetch_array(str("SELECT * FROM dbgame Where pass='" + str(getPass2) +"'  "))
-	if getNama2 or getPass2 != "":
+	getNama = get_node("NMenuLogin/TNama").text
+	getPass = get_node("NMenuLogin/TPassword").text
+	var klikLogin = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"' and pass='" + str(getPass) +"' "))
+	var klikLoginUser = db.fetch_array(str("SELECT * FROM dbgame Where nama='" + str(getNama) +"'  "))
+	var klikLoginPass = db.fetch_array(str("SELECT * FROM dbgame Where pass='" + str(getPass) +"'  "))
+	importhSkor1 = db.fetch_array("SELECT skor1 FROM dbgame WHERE nama='" + str(getNama) +"' ORDER BY skor1 DESC LIMIT 1;")
+	importhSkor2 = db.fetch_array("SELECT skor2 FROM dbgame WHERE nama='" + str(getNama) +"' ORDER BY skor2 DESC LIMIT 1;")
+	if getNama or getPass != "":
 		if len(klikLoginUser) > 0:
 			if len(klikLogin) > 0:
 				$NMenuLogin.hide()
@@ -121,10 +130,11 @@ func _on_BLogin_pressed():
 				# Retrieve current highscore
 				if (klikLogin and not klikLogin.empty()):
 					nama2 = klikLogin[0]['nama']
-					$NMenuAwal/LUser.text = str(nama2)
-					iSkor1 = klikLogin[0]['skor1']
+					$NMenuAwal/LUser.text = str(Global.user)
+					Global.user = nama2
+					iSkor1 = importhSkor1[0]['skor1']
 					$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
-					iSkor2 = klikLogin[0]['skor2']
+					iSkor2 = importhSkor2[0]['skor2']
 					$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
 					#Menyimpan status login
 					Global.login = 1
@@ -139,6 +149,14 @@ func _on_BLogin_pressed():
 		$NMenuLogin/PNamaKosong.show()
 	pass
 	
+func setISkor():
+	importhSkor1 = db.fetch_array("SELECT skor1 FROM dbgame WHERE nama='" + str(Global.user) +"' ORDER BY skor1 DESC LIMIT 1;")
+	importhSkor2 = db.fetch_array("SELECT skor2 FROM dbgame WHERE nama='" + str(Global.user) +"' ORDER BY skor2 DESC LIMIT 1;")
+	iSkor1 = importhSkor1[0]['skor1']
+	$NMenuAwal/LSkorPenyimpanan.text = str(iSkor1)
+	iSkor2 = importhSkor2[0]['skor2']
+	$NMenuAwal/LSkorPengiriman.text = str(iSkor2)
+
 func _on_BSoundOn_pressed():
 	$NMenuAwal/BSoundOff.show()
 	$NMenuAwal/BSoundOn.hide()

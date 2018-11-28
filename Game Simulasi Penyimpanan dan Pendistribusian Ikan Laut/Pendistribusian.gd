@@ -1,4 +1,7 @@
 extends Node2D
+#SQLite
+const SQLite = preload("res://lib/gdsqlite.gdns")
+var db
 #Level
 var level = 1
 #Timer
@@ -10,6 +13,7 @@ var tsec = 0
 var tmin = 0
 #Coin
 var coin = 0
+var cSkor
 #LetakToko
 var letakToko = 1
 #Navigation Path
@@ -33,12 +37,29 @@ var order = [1,1,1,1,1]
 var waktuOrder = [0,0,0,0,0]
 var waktuOrderTemp = [0,0,0,0,0]
 var waktuMinusOrder =[0,100,200]
+var gameEnd = false
+var gameEndCek = 0
 onready var iOrder = [$IconOrder1,$IconOrder2,$IconOrder3,$IconOrder4,$IconOrder5]
 var iOrderTexture = [preload("res://assets/IconOrderLemuru.png"),preload("res://assets/IconOrderSlengseng.png"),preload("res://assets/IconOrderTongkol.png")]
+
+func prepareDatabase():
+	# Create gdsqlite instance
+	db = SQLite.new()
+	# Open the database
+	if (not db.open_db("res://gasipela.db")):
+		return;
+	# Create table
+	var query = "CREATE TABLE IF NOT EXISTS dbgame(userId INTEGER PRIMARY KEY, nama VARCHAR(20), pass VARCHAR(20), skor1 INTEGER, skor2 INTEGER);";
+	if (not db.query(query)):
+		return;
 
 func reset():
 	#Level
 	level = 1
+	gameEndCek = 0
+	#Reset coin
+	coin = 0
+	cSkor = 0
 	#Reset Offset
 	for i in range (0,5,1):
 		fOrderL[i].set_offset(0)
@@ -54,8 +75,15 @@ func reset():
 	#Hide Icon Order
 	for i in range (0,5,1):
 		iOrder[i].hide()
+	#Hide Popup Skor
+	$SSkor.hide()
+	#Menjalankan waktu
+	rtempplus = 1
+	#Reset Game End
+	gameEnd = false
 	
 func _ready():
+	prepareDatabase()
 	randomize()
 	reset()
 	#Play Backsound
@@ -66,15 +94,19 @@ func _ready():
 	pass
 
 func _process(delta):
+	if gameEndCek == 0:
+		gameEnd()
 	setLevel()
 	gerakTruck(delta)
 	gameTimer()
 	pilihToko()
 	setOrderTexture()
-	randomOrder()
+	if gameEnd == false:
+		randomOrder()
 	#Set Text Coin
 	$StatusBar/LCoin.set_text(str(coin))
 	$StatusBar/LLevel.set_text(str(level))
+	$SSkor/LSkor.set_text(str(coin))
 	pass
 	
 func setLevel():
@@ -83,18 +115,31 @@ func setLevel():
 	if coin > 500:
 		level = 3
 	
+func gameEnd():
+	var insertSkor
+	if rmin == 0 && rsec == 0:
+		rtempplus = 0
+		gameEnd = true
+		cSkor = coin * 10
+		$SSkor.show()
+		$NPause.hide()
+		for i in range (0,5,1):
+			iOrder[i].hide()
+		insertSkor = db.query(str("INSERT INTO dbgame VALUES (null,'"+ str(Global.user)+"',null,'0','"+ str(cSkor)+"')"))
+		gameEndCek = 1
+	
 func pilihToko():
-	if Input.is_action_pressed("press1"):
+	if Input.is_action_pressed("press1") && gameEnd == false:
 		letakToko = 1
 		$Background/STLemuru.show()
 		$Background/STSlengseng.hide()
 		$Background/STTongkol.hide()
-	if Input.is_action_pressed("press2"):
+	if Input.is_action_pressed("press2") && gameEnd == false:
 		letakToko = 2
 		$Background/STLemuru.hide()
 		$Background/STSlengseng.show()
 		$Background/STTongkol.hide()
-	if Input.is_action_pressed("press3"):
+	if Input.is_action_pressed("press3") && gameEnd == false:
 		letakToko = 3
 		$Background/STLemuru.hide()
 		$Background/STSlengseng.hide()
@@ -110,7 +155,7 @@ func setOrderTexture():
 			iOrder[i].set_texture(iOrderTexture[2])
 
 func randomOrder():
-	#Order Toko 1 = 10 detik cooldown 10 12 15 8 14
+	#cooldown 10 12 15 8 14
 	if waktuOrderTemp[0] < 500 - waktuMinusOrder[level-1]:
 		waktuOrderTemp[0] += 1
 	if waktuOrderTemp[0] == 500 - waktuMinusOrder[level-1]:
@@ -206,8 +251,6 @@ func gameTimer():
 	if rsec < 0:
 		rsec = 59
 		rmin -= 1
-	if rmin == 0 && rsec == 0:
-		rtempplus = 0
 	$StatusBar/LTimer.text = str(rmin) +":"+ str(rsec).pad_zeros(2)
 	pass
 
@@ -348,11 +391,8 @@ func _on_BOrder5_pressed():
 	waktuOrderTemp[4] = 0
 
 func _on_BMenu_pressed():
-	if Global.musik == 1:
-		$NPause/BackgroundPause/LMusik.set_text(str("Musik: On"))
-	else:
-		$NPause/BackgroundPause/LMusik.set_text(str("Musik: Off"))
-	$NPause.show()
+	if gameEnd == false:
+		$NPause.show()
 func _on_BKembali_pressed():
 	$NPause.hide()
 func _on_BRestart_pressed():
@@ -368,3 +408,5 @@ func _on_BMusik_pressed():
 		$Backsound.play()
 func _on_BMainMenu_pressed():
 	get_tree().change_scene("res://Menu.tscn")
+func _on_BMainLagi_pressed():
+	get_tree().change_scene("res://Pendistribusian.tscn")

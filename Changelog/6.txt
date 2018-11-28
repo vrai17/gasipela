@@ -1,0 +1,2 @@
+- Penyempurnaan fungsi troli dan freezer pada level penyimpanan
+- Game dapat dimainkan dengan normal

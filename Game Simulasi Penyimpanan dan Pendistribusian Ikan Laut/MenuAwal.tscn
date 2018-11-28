@@ -20,6 +20,8 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="NMenuAwal" type="Node2D" index="0"]
 
+editor/display_folded = true
+
 [node name="BPlay" type="Button" parent="." index="0"]
 
 anchor_left = 0.0
@@ -270,7 +272,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 158.0
 margin_top = 517.0
-margin_right = 281.0
+margin_right = 389.0
 margin_bottom = 554.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -296,7 +298,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 158.0
 margin_top = 542.0
-margin_right = 281.0
+margin_right = 398.0
 margin_bottom = 579.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

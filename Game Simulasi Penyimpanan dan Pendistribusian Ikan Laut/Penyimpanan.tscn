@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Penyimpanan.gd" type="Script" id=1]
 [ext_resource path="res://assets/levelPengolahan.png" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://assets/lTongkol.png" type="Texture" id=6]
 [ext_resource path="res://StatusBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Pause.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/Backsound2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://ShowSkor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Backsound2.ogg" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -96,6 +97,7 @@ texture = ExtResource( 3 )
 
 [node name="troli1" type="Sprite" parent="." index="11"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -120,6 +122,7 @@ shape = SubResource( 1 )
 
 [node name="troli2" type="Sprite" parent="." index="12"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
@@ -144,6 +147,7 @@ shape = SubResource( 2 )
 
 [node name="troli3" type="Sprite" parent="." index="13"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -168,6 +172,7 @@ shape = SubResource( 1 )
 
 [node name="troli4" type="Sprite" parent="." index="14"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -192,6 +197,7 @@ shape = SubResource( 1 )
 
 [node name="troli5" type="Sprite" parent="." index="15"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
@@ -216,6 +222,7 @@ shape = SubResource( 2 )
 
 [node name="troli6" type="Sprite" parent="." index="16"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
@@ -240,6 +247,7 @@ shape = SubResource( 3 )
 
 [node name="troli7" type="Sprite" parent="." index="17"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -264,6 +272,7 @@ shape = SubResource( 1 )
 
 [node name="troli8" type="Sprite" parent="." index="18"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
@@ -288,6 +297,7 @@ shape = SubResource( 3 )
 
 [node name="troli9" type="Sprite" parent="." index="19"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
@@ -312,6 +322,7 @@ shape = SubResource( 1 )
 
 [node name="troli10" type="Sprite" parent="." index="20"]
 
+editor/display_folded = true
 position = Vector2( 48, 507 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
@@ -526,13 +537,20 @@ shape = SubResource( 2 )
 
 [node name="StatusBar" parent="." index="31" instance=ExtResource( 7 )]
 
+editor/display_folded = true
+
 [node name="NPause" parent="." index="32" instance=ExtResource( 8 )]
 
+editor/display_folded = true
 visible = false
 
-[node name="Backsound" type="AudioStreamPlayer" parent="." index="33"]
+[node name="SSkor" parent="." index="33" instance=ExtResource( 9 )]
 
-stream = ExtResource( 9 )
+editor/display_folded = true
+
+[node name="Backsound" type="AudioStreamPlayer" parent="." index="34"]
+
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -648,6 +666,11 @@ bus = "Master"
 
 [connection signal="pressed" from="NPause/BMainMenu" to="." method="_on_BMainMenu_pressed"]
 
+[connection signal="pressed" from="SSkor/SMainLagi/BMainLagi" to="." method="_on_BMainLagi_pressed"]
+
+[connection signal="pressed" from="SSkor/SMainMenu/BMainMenu" to="." method="_on_BMainMenu_pressed"]
+
 
 [editable path="StatusBar"]
 [editable path="NPause"]
+[editable path="SSkor"]

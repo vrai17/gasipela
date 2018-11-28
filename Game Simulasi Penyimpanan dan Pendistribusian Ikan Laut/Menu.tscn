@@ -19,13 +19,14 @@ use_filter = true
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="NMenu" type="Node2D" index="0"]
+[node name="NMenu" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+editor/display_folded = true
 position = Vector2( 512.486, 300.403 )
 scale = Vector2( 0.799812, 0.832213 )
 texture = ExtResource( 2 )
@@ -37,6 +38,8 @@ scale = Vector2( 0.689374, 0.689374 )
 texture = ExtResource( 3 )
 
 [node name="NMenuLogin" parent="." index="1" instance=ExtResource( 4 )]
+
+editor/display_folded = true
 
 [node name="BLogin" parent="NMenuLogin" index="0"]
 
@@ -66,7 +69,6 @@ text = "Password salah"
 
 [node name="PNamaKosong" parent="NMenuLogin" index="13"]
 
-visible = true
 margin_left = 305.0
 margin_right = 775.0
 
@@ -144,10 +146,34 @@ mouse_default_cursor_shape = 2
 editor/display_folded = true
 visible = false
 
+[node name="Aboutteks" parent="NAbout" index="3"]
+
+text = "Petunjuk Level Penyimpanan :
+- Seret loyang berisi ikan ke lemari pendingin menggunakan klik kiri [mouse]
+- Apabila sudah membeku, segera angkat loyang menggunakan klik kanan [mouse]
+	  sebelum kualitas ikan menurun
+Petunjuk Level Pendistribusian :
+- Gunakan angka 1, 2, dan 3 untuk memilih pabrik ikan yang aktif
+- Klik gambar pesanan untuk mengirim ikan menggunakan
+	   klik kiri [mouse], pastikan pesanan yang dikirim tepat sasaran
+"
+
 [node name="NSkor" parent="." index="5" instance=ExtResource( 9 )]
 
 editor/display_folded = true
 visible = false
+
+[node name="Backgroundskor" parent="NSkor" index="0"]
+
+scale = Vector2( 2.09127, 0.73287 )
+
+[node name="SkorPenyimpanan" parent="NSkor" index="7"]
+
+margin_right = 535.0
+
+[node name="SkorPengiriman" parent="NSkor" index="8"]
+
+margin_right = 898.0
 
 [node name="Backsound" type="AudioStreamPlayer" parent="." index="6"]
 
